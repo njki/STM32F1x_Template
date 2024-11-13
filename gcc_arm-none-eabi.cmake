@@ -1,0 +1,10 @@
+set(GCC_TOOLCHAIN_DIR "C:/__DevelopEnv/arm-gnu-toolchain-13.2.Rel1-mingw-w64-i686-arm-none-eabi/bin")
+
+set(CMAKE_C_COMPILER "${GCC_TOOLCHAIN_DIR}/arm-none-eabi-gcc.exe")
+set(CMAKE_CXX_COMPILER "${GCC_TOOLCHAIN_DIR}/arm-none-eabi-g++.exe")
+set(CMAKE_ASM_COMPILER "${GCC_TOOLCHAIN_DIR}/arm-none-eabi-gcc.exe")
+set(CMAKE_AR "${GCC_TOOLCHAIN_DIR}/arm-none-eabi-ar.exe")
+set(CMAKE_OBJCOPY "${GCC_TOOLCHAIN_DIR}/arm-none-eabi-objcopy.exe")
+set(CMAKE_OBJDUMP "${GCC_TOOLCHAIN_DIR}/arm-none-eabi-objdump.exe")
+set(SIZE "${GCC_TOOLCHAIN_DIR}/arm-none-eabi-size.exe")
+set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)

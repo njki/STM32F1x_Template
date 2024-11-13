@@ -1,25 +1,25 @@
-#include "stm32f4xx.h"
+
+#include "stm32f10x_conf.h"
 
 int main(void) {
     GPIO_InitTypeDef GPIO_InitStructure;
 
-    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
 
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
-    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-    GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
-    GPIO_Init(GPIOB, &GPIO_InitStructure);
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+    GPIO_Init(GPIOC, &GPIO_InitStructure);
 
     while (1) {
-        GPIO_SetBits(GPIOB, GPIO_Pin_9);
-        for(int i=0;i<10000000; i++){
+        GPIO_SetBits(GPIOC, GPIO_Pin_13);
+        for(int i=0;i<100000; i++){
             __asm("nop");
         }
 
-        GPIO_ResetBits(GPIOB, GPIO_Pin_9);
-        for(int i=0;i<10000000; i++){
+        GPIO_ResetBits(GPIOC, GPIO_Pin_13);
+        for(int i=0;i<100000; i++){
             __asm("nop");
         }
     }
